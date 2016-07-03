@@ -1,0 +1,22 @@
+sudo pacman -S avr-gcc avr-binutils avr-gdb avr-libc avrdude
+
+# install eclipse-cpp #### steht in konflikt zu eclipse-java -> cdt als plugin, o.ä. installieren
+
+# eclipse: install new Software: http://avr-eclipse.sourceforge.net/updatesite/
+#	-> AVR Eclipse Plugin
+
+# udev-Regel anpassen (sollte nicht nötig sein), um avrdude ohne sudo ausführen zu können:
+# gedit 60-avr.rules
+sudo cp 60-avr.rules /etc/udev/rules.d/60-avr.rules
+# avr-programmer neu einstecken
+
+
+#
+# WICHTIG:
+# In properties -> AVR -> AVRDude -> {New Programmer configuration} Edit AVRDude
+#		- Programmer Hardware		= Atmel AVR ISP V2
+#		- Override default port	= usb
+
+
+#check with the following comand:
+avrdude -c avrispv2 -p t45 -P usb -v

@@ -1,0 +1,4 @@
+# All-AVR AVR-Programmer
+# get parameter by lsusb
+# out: "[...] ID <idVendor>:<idProduct> Atmel Corp. AVR ISP mkII"
+SUBSYSTEM=="usb", ATTR{idVendor}=="03eb", ATTR{idProduct}=="2104", MODE="0666"
